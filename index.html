@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>在线图片查看器-小天</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        // 获取URL中的参数函数
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // 获取名为“i”的参数值
+        var imageUrl = getParameterByName('url');
+
+        // 如果有参数，则打开图片
+        if (imageUrl) {
+        // 显示图像
+        document.write('<img src="' + imageUrl + '" alt="图片">');
+        }
+        if (!imageUrl) {
+            window.location.replace('http://xt-url.com/');
+        }
+        
+    </script>
