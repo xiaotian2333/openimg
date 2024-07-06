@@ -18,6 +18,8 @@
             border: none;
         }
     </style>
+    <!-- 擦除referrer，绕过防盗链 -->
+    <meta name="referrer" content="no-referrer" />
 </head>
 
 <body>
@@ -34,16 +36,17 @@
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
 
-        // 获取名为“i”的参数值
+        // 获取 url的参数值
         var imageUrl = getParameterByName('url');
 
         // 如果有参数，则打开图片
         if (imageUrl) {
-        // 显示图像
-        document.write('<img src="' + imageUrl + '" alt="图片">');
+            // 显示图像
+            document.write('<img src="' + imageUrl + '" alt="小天在线图片查看器">');
         }
         if (!imageUrl) {
+            // 跳转链接
             window.location.replace('http://xt-url.com/');
         }
-        
+
     </script>
