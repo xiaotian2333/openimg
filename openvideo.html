@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>在线媒体查看器-小天</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+    </style>
+    <!-- 擦除referrer，绕过防盗链 -->
+    <meta name="referrer" content="no-referrer" />
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        // 获取URL中的参数函数
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // 获取 url的参数值
+        var imageUrl = getParameterByName('url');
+
+        // 如果有参数，则打开视频
+        if (imageUrl) {
+            // 显示视频
+            document.write('<video controls><source src="' + mediaUrl + '" type="video/mp4"></video>');
+        }
+        if (!imageUrl) {
+            // 跳转链接
+            window.location.replace('https://openimg.xt1.link/');
+        }
+
+    </script>

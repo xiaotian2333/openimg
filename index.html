@@ -1,52 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 
 <head>
-    <title>在线图片查看器-小天</title>
+    <meta charset="utf-8">
+    <title>小天在线媒体查看器</title>
+    <link rel="icon" type="image/png" href="icon.png">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
+        .container {
+            width: 60%;
+            margin: 10% auto 0;
+            background-color: #f0f0f0;
+            padding: 2% 5%;
+            border-radius: 10px
         }
 
-        img {
-            display: block;
-            max-width: 100%;
-            height: auto;
-            margin: 0;
-            padding: 0;
-            border: none;
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            line-height: 2.3
+        }
+
+        a {
+            color: #20a53a
         }
     </style>
-    <!-- 擦除referrer，绕过防盗链 -->
-    <meta name="referrer" content="no-referrer" />
 </head>
 
 <body>
+    <div id="dynamic-background"></div>
+    <div class="container">
+        <h1>这是一个在线媒体查看器</h1>
+        <h3>由于部分图床、文件床的链接会直接发起下载而非预览，因此做了一个在线查看器</h3>
+        <ul>
+            <li>目前有图片和视频的在线查看器</li>
+            <li>入口分别为 /openimg 和 /openvideo</li>
+            <li>添加参数url即可打开对应url的在线媒体</li>
+            <li>如不添加参数则会跳转到本页面</li>
+        </ul>
+        作者：xiaotian
+    </div>
 
-    <script type="text/javascript">
-        // 获取URL中的参数函数
-        function getParameterByName(name, url) {
-            if (!url) url = window.location.href;
-            name = name.replace(/[\[\]]/g, "\\$&");
-            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-                results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, " "));
-        }
-
-        // 获取 url的参数值
-        var imageUrl = getParameterByName('url');
-
-        // 如果有参数，则打开图片
-        if (imageUrl) {
-            // 显示图像
-            document.write('<img src="' + imageUrl + '" alt="小天在线图片查看器">');
-        }
-        if (!imageUrl) {
-            // 跳转链接
-            window.location.replace('http://xt-url.com/');
-        }
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var dynamicBackground = document.getElementById("dynamic-background");
+            dynamicBackground.style.backgroundImage = "url('https://imgapi.cn/cos.php')";
+            dynamicBackground.style.backgroundSize = "cover"; // 可根据需要调整背景图片大小适应
+        });
     </script>
+
+</body>
+
+</html>
