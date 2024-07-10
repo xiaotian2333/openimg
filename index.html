@@ -9,7 +9,7 @@
         .container {
             width: 60%;
             margin: 10% auto 0;
-            background-color: #f0f0f0;
+            background-color: rgba(240, 240, 240, 0.329);
             padding: 2% 5%;
             border-radius: 10px
         }
@@ -25,11 +25,21 @@
         a {
             color: #20a53a
         }
+
+        body {
+            background-image: url('https://imgapi.cn/cos.php');
+            /* 替换为你的背景图片路径 */
+            background-size: cover;
+            /* 使背景图片尽可能填充整个背景区域 */
+            background-position: center;
+            /* 将背景图片放置在屏幕中心 */
+            background-repeat: no-repeat;
+            /* 防止背景图片重复 */
+        }
     </style>
 </head>
 
 <body>
-    <div id="dynamic-background"></div>
     <div class="container">
         <h1>这是一个在线媒体查看器</h1>
         <h3>由于部分图床、文件床的链接会直接发起下载而非预览，因此做了一个在线查看器</h3>
@@ -41,14 +51,6 @@
         </ul>
         作者：xiaotian
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var dynamicBackground = document.getElementById("dynamic-background");
-            dynamicBackground.style.backgroundImage = "url('https://imgapi.cn/cos.php')";
-            dynamicBackground.style.backgroundSize = "cover"; // 可根据需要调整背景图片大小适应
-        });
-    </script>
 
 </body>
 
