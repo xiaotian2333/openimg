@@ -12,13 +12,19 @@
             padding: 0;
         }
 
-        img {
-            display: block;
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            height: 100vh;
+            /* 可根据需要调整容器高度 */
+        }
+
+        .image-container img {
+            object-fit: contain;
             max-width: 100%;
-            height: auto;
-            margin: 0;
-            padding: 0;
-            border: none;
+            max-height: 100%;
         }
     </style>
     <!-- 擦除referrer，绕过防盗链 -->
@@ -45,7 +51,7 @@
         // 如果有参数，则打开图片
         if (imageUrl) {
             // 显示图像
-            document.write('<img src="' + imageUrl + '" alt="小天在线媒体查看器">');
+            document.write('<div class="image-container"><img src="' + imageUrl + '" alt="小天在线媒体查看器">></div>');
         }
         if (!imageUrl) {
             // 跳转链接
